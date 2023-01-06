@@ -1,4 +1,4 @@
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import { PhotoIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
 function Input() {
@@ -29,21 +29,30 @@ function Input() {
 
         {selectedFile && (
           <div className="relative">
-          <div
-            className="absolute w-8 h-8 bg-[#15181c] hover:bg-[#272c26]
+            <div
+              className="absolute w-8 h-8 bg-[#15181c] hover:bg-[#272c26]
           bg-opacity-75 rounded-full flex items-center justify-center top-1 left-1
-          cursor-pointer" onClick={() => setSelectFile(null)}
-          >
-            <XMarkIcon className="text-white h-5" />
+          cursor-pointer"
+              onClick={() => setSelectFile(null)}
+            >
+              <XMarkIcon className="text-white h-5" />
+            </div>
+            <img
+              src={selectedFile}
+              alt=""
+              className="rounded-2xl max-h-80 object-contain"
+            />
           </div>
-          <img
-            src={selectedFile}
-            alt=""
-            className="rounded-2xl max-h-80 object-contain"
-          />
-        </div>
         )}
-        
+
+        <div className="flex items-center justify-between pt-2.5">
+          <div className="flex items-center">
+            <div className="icon">
+              <PhotoIcon className="h-[22px] text-[#1d9bf0]" />
+              <input type="file" hidden />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
