@@ -10,7 +10,6 @@ import {
   EllipsisHorizontalCircleIcon,
 } from "@heroicons/react/24/outline";
 
-
 function Sidebar() {
   return (
     <div
@@ -38,6 +37,13 @@ function Sidebar() {
         <SidebarLink text="Profile" Icon={UserIcon} />
         <SidebarLink text="More" Icon={EllipsisHorizontalCircleIcon} />
       </div>
+      <button
+        className="hidden xl:inline ml-auto bg-[#1d9bf0] text-white
+        rounded-full w-56 h-[52px] text-lg font-bold tracking-wide shadow-md
+        hover:bg-[#1a8cd8]"
+        >
+        Tweet
+      </button>
     </div>
   );
 }
