@@ -12,7 +12,7 @@ function Feed() {
         <h2 className="text-lg sm:text-xl font-bold">Home</h2>
         <div className="hover__animation w-9 h-9 flex items-center justify-center
              xl:px-0 ml-auto">
-          <SparklesIcon className="h-5 text-white"/>
+          <SparklesIcon className="h-5 text-white rotate-180"/>
         </div>
       </div>
 
@@ -20,4 +20,5 @@ function Feed() {
     </div>
   );
 }
+
 export default Feed;
