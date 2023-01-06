@@ -7,20 +7,52 @@ import {
 } from "@heroicons/react/24/outline";
 import Picker from "@emoji-mart/react";
 import { useRef, useState } from "react";
+import { db, storage } from "../firebase";
+import {
+  addDoc,
+  collection,
+  doc,
+  serverTimestamp,
+  updateDoc,
+} from "@firebase/firestore";
+import { getDownloadURL, ref, uploadString } from "@firebase/storage";
 
 function Input() {
   const [input, setInput] = useState("");
-  const [selectedFile, setSelectFile] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null);
   const filePickerRef = useRef(null);
   const [showEmoji, setShowEmoji] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const sendPost = () => {
+  const sendPost = async () => {
     if (loading) return;
     setLoading(true);
+
+    const docRef = await addDoc(collection(db, "posts"), {
+      text: input,
+      timestamp: serverTimestamp(),
+    });
+
+    const imageRef = ref(storage, `posts/${docRef.id}/image`);
+
+    if (selectedFile) {
+      await uploadString(imageRef, selectedFile, "data_url").then(async () => {
+        const downloadURL = await getDownloadURL(imageRef);
+        await updateDoc(doc(db, "posts", docRef.id), {
+          image: downloadURL,
+        });
+      });
+    }
+
+    setLoading(false);
+    setInput("");
+    setSelectedFile(null);
+    setShowEmoji(false);
   };
 
-  const addImage = () => {};
+  const addImage = (event) => {
+    
+  };
 
   return (
     <div
@@ -50,7 +82,7 @@ function Input() {
               className="absolute w-8 h-8 bg-[#15181c] hover:bg-[#272c26]
           bg-opacity-75 rounded-full flex items-center justify-center top-1 left-1
           cursor-pointer"
-              onClick={() => setSelectFile(null)}
+              onClick={() => setSelectedFile(null)}
             >
               <XMarkIcon className="text-white h-5" />
             </div>
