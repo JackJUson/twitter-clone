@@ -13,6 +13,12 @@ function Input() {
   const [selectedFile, setSelectFile] = useState(null);
   const filePickerRef = useRef(null);
   const [showEmoji, setShowEmoji] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const sendPost = () => {
+    if (loading) return;
+    setLoading(true);
+  };
 
   const addImage = () => {};
 
@@ -27,7 +33,7 @@ function Input() {
         className="h-11 w-11 rounded-full cursor-pointer"
       />
       <div className="w-full divide-y divide-gray-700">
-        <div className={``}>
+        <div className={`${selectedFile && "pb-7"} ${input && "space-y-2.5"}`}>
           <textarea
             value={input}
             onChange={(event) => setInput(event.target.value)}
@@ -98,6 +104,7 @@ function Input() {
             font-bold shadow-md hover:bg-[#1a8cd8] disabled:hover:bg-[#1d9bf0] 
             disabled:opacity-50 disabled:cursor-default"
             disabled={!input.trim() && !selectedFile}
+            onClick={sendPost}
           >
             Tweet
           </button>
