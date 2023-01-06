@@ -1,5 +1,5 @@
 import SidebarLink from "./SidebarLink";
-import { HomeIcon } from "@heroicons/react/24/solid";
+import { EllipsisHorizontalIcon, HomeIcon } from "@heroicons/react/24/solid";
 import {
   HashtagIcon,
   BellIcon,
@@ -56,6 +56,7 @@ function Sidebar() {
           <h4 className="font-bold">Jackson 1234</h4>
           <p className="text-[#6e767d]">@Jackson1234</p>
         </div>
+        <EllipsisHorizontalIcon className="h-7 hidden xl:inline ml-8" />
       </div>
     </div>
   );
