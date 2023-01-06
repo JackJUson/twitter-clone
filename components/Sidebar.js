@@ -41,9 +41,22 @@ function Sidebar() {
         className="hidden xl:inline ml-auto bg-[#1d9bf0] text-white
         rounded-full w-56 h-[52px] text-lg font-bold tracking-wide shadow-md
         hover:bg-[#1a8cd8]"
-        >
+      >
         Tweet
       </button>
+
+      <div className="text-[#d9d9d9] flex items-center justify-center xl:ml-auto
+           hover__animation xl:-mr-5 mt-auto">
+        <img
+          src="https://avatars.githubusercontent.com/u/108652931?v=4"
+          alt=""
+          className="h-10 w-10 rounded-full xl:mr-2.5"
+        />
+        <div className="hidden xl:inline leading-5">
+          <h4 className="font-bold">Jackson 1234</h4>
+          <p className="text-[#6e767d]">@Jackson1234</p>
+        </div>
+      </div>
     </div>
   );
 }
