@@ -1,5 +1,11 @@
-import { CalendarIcon, ChartBarIcon, FaceSmileIcon, PhotoIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Picker } from "emoji-mart";
+import {
+  CalendarIcon,
+  ChartBarIcon,
+  FaceSmileIcon,
+  PhotoIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
+import Picker from "@emoji-mart/react";
 import { useRef, useState } from "react";
 
 function Input() {
@@ -8,9 +14,7 @@ function Input() {
   const filePickerRef = useRef(null);
   const [showEmoji, setShowEmoji] = useState(false);
 
-  const addImage = () => {
-
-  };
+  const addImage = () => {};
 
   return (
     <div
@@ -64,17 +68,39 @@ function Input() {
               />
             </div>
             <div className="icon rotate-90">
-                <ChartBarIcon className="text-[#1d9bf0] h-[22px]" />
-              </div>
+              <ChartBarIcon className="text-[#1d9bf0] h-[22px]" />
+            </div>
 
-              <div className="icon" onClick={() => setShowEmoji(!showEmoji)}>
-                <FaceSmileIcon className="text-[#1d9bf0] h-[22px]" />
-              </div>
+            <div className="icon" onClick={() => setShowEmoji(!showEmoji)}>
+              <FaceSmileIcon className="text-[#1d9bf0] h-[22px]" />
+            </div>
 
-              <div className="icon">
-                <CalendarIcon className="text-[#1d9bf0] h-[22px]" />
-              </div>
+            <div className="icon">
+              <CalendarIcon className="text-[#1d9bf0] h-[22px]" />
+            </div>
+
+            {showEmoji && (
+              <Picker
+                // onSelect={addEmoji}
+                // style={{
+                //   position: "absolute",
+                //   marginTop: "465px",
+                //   marginLeft: -40,
+                //   maxWidth: "320px",
+                //   borderRadius: "20px",
+                // }}
+                theme="dark"
+              />
+            )}
           </div>
+          <button
+            className="bg-[#1d9bf0] text-white rounded-full px-4 py-1.5 
+            font-bold shadow-md hover:bg-[#1a8cd8] disabled:hover:bg-[#1d9bf0] 
+            disabled:opacity-50 disabled:cursor-default"
+            disabled={!input.trim() && !selectedFile}
+          >
+            Tweet
+          </button>
         </div>
       </div>
     </div>
