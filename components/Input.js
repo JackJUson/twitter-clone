@@ -1,7 +1,9 @@
+import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
 function Input() {
-  const [input, setInput] = useState();
+  const [input, setInput] = useState("");
+  const [selectedFile, setSelectFile] = useState(null);
 
   return (
     <div
@@ -24,7 +26,24 @@ function Input() {
              placeholder-gray-500 tracking-wide w-full min-h-[50px] scrollbar-hide"
           />
         </div>
-        <div>Hello</div>
+
+        {selectedFile && (
+          <div className="relative">
+          <div
+            className="absolute w-8 h-8 bg-[#15181c] hover:bg-[#272c26]
+          bg-opacity-75 rounded-full flex items-center justify-center top-1 left-1
+          cursor-pointer" onClick={() => setSelectFile(null)}
+          >
+            <XMarkIcon className="text-white h-5" />
+          </div>
+          <img
+            src={selectedFile}
+            alt=""
+            className="rounded-2xl max-h-80 object-contain"
+          />
+        </div>
+        )}
+        
       </div>
     </div>
   );
