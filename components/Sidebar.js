@@ -1,4 +1,4 @@
-import SidebarLink from "./SideBarLink";
+import SidebarLink from "./SidebarLink";
 import { HomeIcon } from "@heroicons/react/24/solid";
 import {
   HashtagIcon,
