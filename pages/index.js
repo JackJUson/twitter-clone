@@ -23,12 +23,12 @@ export default function Home() {
 }
 
 export async function getServerSideProps(context) {
-  const trendingResults = await fetch(`https://jsonplaceholder.typicode.com/users`).then(
-    (response) => response.json()
-  );
-  const followResults = await fetch(`https://jsonplaceholder.typicode.com/users`).then(
-    (response) => response.json()
-  );
+  const trendingResults = axios
+    .get(`https://jsonplaceholder.typicode.com/users`)
+    .then((response) => response.json());
+  const followResults = axios
+    .get(`https://jsonplaceholder.typicode.com/users`)
+    .then((response) => response.json());
   const providers = await getProviders();
   const session = await getSession(context);
 
