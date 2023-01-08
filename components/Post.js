@@ -1,5 +1,5 @@
-import { ArrowsRightLeftIcon, ChatBubbleLeftIcon, EllipsisHorizontalIcon, ShareIcon, TrashIcon } from "@heroicons/react/24/outline";
-import { HeartIcon, ChartBarIcon } from "@heroicons/react/24/solid";
+import { ArrowsRightLeftIcon, EllipsisHorizontalIcon, ShareIcon, TrashIcon } from "@heroicons/react/24/outline";
+import { HeartIcon, ChartBarIcon, ChatBubbleOvalLeftEllipsisIcon as ChatBox } from "@heroicons/react/24/solid";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -24,6 +24,7 @@ function Post({ id, post, postData }) {
   const [comments, setComments] = useState([]);
   const [likes, setLikes] = useState([]);
   const [liked, setLiked] = useState(false);
+  const router = useRouter();
 
   useEffect(
     () =>
@@ -132,7 +133,7 @@ function Post({ id, post, postData }) {
             }}
           >
             <div className="icon group-hover:bg-[#1d9bf0] group-hover:bg-opacity-10">
-              <ChatBubbleLeftIcon className="h-5 group-hover:text-[#1d9bf0]" />
+              <ChatBox className="h-5 group-hover:text-[#1d9bf0]" />
             </div>
             {comments.length > 0 && (
               <span className="group-hover:text-[#1d9bf0] text-sm">
@@ -140,6 +141,27 @@ function Post({ id, post, postData }) {
               </span>
             )}
           </div>
+
+          {session.user.uid === post?.id ? (
+            <div
+              className="flex items-center space-x-1 group"
+              onClick={(e) => {
+                e.stopPropagation();
+                deleteDoc(doc(db, "posts", id));
+                router.push("/");
+              }}
+            >
+              <div className="icon group-hover:bg-red-600/10">
+                <TrashIcon className="h-5 group-hover:text-red-600" />
+              </div>
+            </div>
+          ) : (
+            <div className="flex items-center space-x-1 group">
+              <div className="icon group-hover:bg-green-500/10">
+                <ArrowsRightLeftIcon className="h-5 group-hover:text-green-500" />
+              </div>
+            </div>
+          )}
 
           <div
             className="flex items-center space-x-1 group"
@@ -169,7 +191,7 @@ function Post({ id, post, postData }) {
           <div className="icon group">
             <ShareIcon className="h-5 group-hover:text-[#1d9bf0]" />
           </div>
-
+          
           <div className="icon group">
             <ChartBarIcon className="h-5 group-hover:text-[#1d9bf0]" />
           </div>
