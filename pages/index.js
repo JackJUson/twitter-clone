@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Feed from "../components/Feed";
 import Sidebar from "../components/Sidebar";
+import { getProviders, getSession, useSession } from "next-auth/react";
 
 export default function Home() {
   return (
@@ -19,4 +20,24 @@ export default function Home() {
       </main>
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  const trendingResults = await fetch(`https://jsonplaceholder.typicode.com/users`).then(
+    (response) => response.json()
+  );
+  const followResults = await fetch(`https://jsonplaceholder.typicode.com/users`).then(
+    (response) => response.json()
+  );
+  const providers = await getProviders();
+  const session = await getSession(context);
+
+  return {
+    props: {
+      trendingResults,
+      followResults,
+      providers,
+      session,
+    },
+  };
 }
