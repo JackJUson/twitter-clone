@@ -1,6 +1,16 @@
-import { EllipsisHorizontalIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowsRightLeftIcon,
+  ChatBubbleLeftIcon,
+  EllipsisHorizontalIcon,
+  ShareIcon,
+  TrashIcon,
+} from "@heroicons/react/24/outline";
+import { HeartIcon, ChartBarIcon } from "@heroicons/react/24/solid";
+import { useSession } from "next-auth/react";
 
 function Post({ id, post, postData }) {
+  const { data: session } = useSession();
+
   return (
     <div className="p-3 flex cursor-pointer border-b border-gray-700">
       {!postData && (
@@ -41,18 +51,32 @@ function Post({ id, post, postData }) {
             )}
           </div>
           <div className="icon group flex-shrink-0 ml-auto">
-            <EllipsisHorizontalIcon 
-            className="h-5 text-[#6e767d] group-hover:text-[#1d9bf0]" />
+            <EllipsisHorizontalIcon className="h-5 text-[#6e767d] group-hover:text-[#1d9bf0]" />
           </div>
         </div>
+
         {postData && (
           <p className="text-[#d9d9d9] mt-0.5 text-xl">{post?.text}</p>
         )}
+
         <img
           src={post?.image}
           alt=""
           className="rounded-2xl max-h-[700px] object-cover mr-2"
         />
+
+        <div
+          className={`text-[#6e767d] flex justify-between w-10/12 ${
+            postData && "mx-auto"
+          }`}
+        >
+          <div className="icon group">
+            <ShareIcon className="h-5 group-hover:text-[#1d9bf0]" />
+          </div>
+          <div className="icon group">
+            <ChartBarIcon className="h-5 group-hover:text-[#1d9bf0]" />
+          </div>
+        </div>
       </div>
     </div>
   );
