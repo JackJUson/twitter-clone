@@ -1,3 +1,5 @@
+import { EllipsisHorizontalIcon } from "@heroicons/react/24/outline";
+
 function Post({ id, post, postData }) {
   return (
     <div className="p-3 flex cursor-pointer border-b border-gray-700">
@@ -30,9 +32,27 @@ function Post({ id, post, postData }) {
               >
                 @{post?.tag}
               </span>
-            </div>{" "}·{" "}
+            </div>{" "}
+            ·{" "}
+            {!postData && (
+              <p className="text-[#d9d9d9] text-[15px] sm:text-base mt-0.5">
+                {post?.text}
+              </p>
+            )}
+          </div>
+          <div className="icon group flex-shrink-0 ml-auto">
+            <EllipsisHorizontalIcon 
+            className="h-5 text-[#6e767d] group-hover:text-[#1d9bf0]" />
           </div>
         </div>
+        {postData && (
+          <p className="text-[#d9d9d9] mt-0.5 text-xl">{post?.text}</p>
+        )}
+        <img
+          src={post?.image}
+          alt=""
+          className="rounded-2xl max-h-[700px] object-cover mr-2"
+        />
       </div>
     </div>
   );
