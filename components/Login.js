@@ -1,6 +1,6 @@
-import Image from "next/image"
+import Image from "next/image";
 
-function Login() {
+function Login({ providers }) {
   return (
     <div className="flex flex-col items-center space-y-20 pt-48">
       <img
@@ -9,7 +9,16 @@ function Login() {
         height={150}
         className="object-contain"
       />
+
+      <div>
+        {Object.values(providers).map((provider) => (
+          <div key={provider.name}>
+            
+          </div>
+        ))}
+      </div>
     </div>
-  )
+  );
 }
-export default Login
+
+export default Login;
