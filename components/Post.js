@@ -1,5 +1,15 @@
-import { ArrowsRightLeftIcon, EllipsisHorizontalIcon, ShareIcon, TrashIcon } from "@heroicons/react/24/outline";
-import { HeartIcon, ChartBarIcon, ChatBubbleOvalLeftEllipsisIcon as ChatBox } from "@heroicons/react/24/solid";
+import {
+  ArrowsRightLeftIcon,
+  EllipsisHorizontalIcon,
+  ShareIcon,
+  TrashIcon,
+  HeartIcon,
+  ChatBubbleOvalLeftEllipsisIcon as ChatBox,
+  ChartBarIcon,
+} from "@heroicons/react/24/outline";
+import {
+  HeartIcon as HeartIconFilled,
+} from "@heroicons/react/24/solid";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -16,6 +26,7 @@ import {
   query,
   setDoc,
 } from "@firebase/firestore";
+import Moment from "react-moment";
 
 function Post({ id, post, postData }) {
   const { data: session } = useSession();
@@ -97,6 +108,9 @@ function Post({ id, post, postData }) {
               </span>
             </div>{" "}
             ·{" "}
+            <span className="hover:underline text-sm sm:text-[15px]">
+              <Moment fromNow>{post?.timestamp?.toDate()}</Moment>
+            </span>
             {!postData && (
               <p className="text-[#d9d9d9] text-[15px] sm:text-base mt-0.5">
                 {post?.text}
@@ -104,8 +118,7 @@ function Post({ id, post, postData }) {
             )}
           </div>
           <div className="icon group flex-shrink-0 ml-auto">
-            <EllipsisHorizontalIcon 
-            className="h-5 text-[#6e767d] group-hover:text-[#1d9bf0]" />
+            <EllipsisHorizontalIcon className="h-5 text-[#6e767d] group-hover:text-[#1d9bf0]" />
           </div>
         </div>
 
@@ -172,7 +185,7 @@ function Post({ id, post, postData }) {
           >
             <div className="icon group-hover:bg-pink-600/10">
               {liked ? (
-                <HeartIcon className="h-5 text-pink-600" />
+                <HeartIconFilled className="h-5 text-pink-600" />
               ) : (
                 <HeartIcon className="h-5 group-hover:text-pink-600" />
               )}
@@ -191,7 +204,7 @@ function Post({ id, post, postData }) {
           <div className="icon group">
             <ShareIcon className="h-5 group-hover:text-[#1d9bf0]" />
           </div>
-          
+
           <div className="icon group">
             <ChartBarIcon className="h-5 group-hover:text-[#1d9bf0]" />
           </div>
