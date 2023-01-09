@@ -17,7 +17,7 @@ function Modal() {
   
   return (
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+        <Dialog as="div" className="fixed z-50 inset-0 pt-8" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -27,7 +27,7 @@ function Modal() {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
             >
-            <div className="fixed inset-0 bg-black bg-opacity-25" />
+            <Dialog.Overlay className="fixed inset-0 bg-[#5b7083] bg-opacity-40 transition-opacity" />
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
