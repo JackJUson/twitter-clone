@@ -7,9 +7,7 @@ import {
   ChatBubbleOvalLeftEllipsisIcon as ChatBox,
   ChartBarIcon,
 } from "@heroicons/react/24/outline";
-import {
-  HeartIcon as HeartIconFilled,
-} from "@heroicons/react/24/solid";
+import { HeartIcon as HeartIconFilled } from "@heroicons/react/24/solid";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -76,7 +74,10 @@ function Post({ id, post, postData }) {
   };
 
   return (
-    <div className="p-3 flex cursor-pointer border-b border-gray-700">
+    <div
+      className="p-3 flex cursor-pointer border-b border-gray-700"
+      onClick={() => router.push(`/${id}`)}
+    >
       {!postData && (
         <img
           src={post?.userImg}
