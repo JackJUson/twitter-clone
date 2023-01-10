@@ -21,7 +21,6 @@ export const authOptions = {
       return session;
     },
   },
-  // secret: process.env.JWT_SECRET,
   secret: process.env.JWT_SECRET,
 };
 
