@@ -18,8 +18,9 @@ import {
 import Post from "../components/Post";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import Comment from "../components/Comment";
+import Widget from "../components/Widget";
 
-function PostPage({ providers }) {
+function PostPage({ trendingResults, followResults, providers }) {
   const { data: session } = useSession();
   const [isOpen, setIsOpen] = useRecoilState(modalState);
   const [post, setPost] = useState();
@@ -90,7 +91,11 @@ function PostPage({ providers }) {
             </div>
           )}
         </div>
-        {/* Widgets */}
+
+        <Widget
+          trendingResults={trendingResults}
+          followResults={followResults}
+        />
 
         {isOpen && <Modal />}
       </main>
