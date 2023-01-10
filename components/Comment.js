@@ -1,4 +1,10 @@
-import { ChartBarIcon, ChatBubbleOvalLeftIcon, EllipsisHorizontalCircleIcon, EllipsisHorizontalIcon, HeartIcon, ShareIcon } from "@heroicons/react/24/outline";
+import {
+  ChartBarIcon,
+  ChatBubbleOvalLeftIcon,
+  EllipsisHorizontalIcon,
+  HeartIcon,
+  ShareIcon,
+} from "@heroicons/react/24/outline";
 import Moment from "react-moment";
 
 function Comment({ id, comment }) {

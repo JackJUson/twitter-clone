@@ -33,12 +33,12 @@ export default function Home({ trendingResults, followResults, providers }) {
 }
 
 export async function getServerSideProps(context) {
-  const trendingResults = await fetch("https://jsonplaceholder.typicode.com/users").then(
-    (res) => res.json()
-  );
-  const followResults = await fetch("https://jsonplaceholder.typicode.com/users").then(
-    (res) => res.json()
-  );
+  const trendingResults = await fetch(
+    "https://jsonplaceholder.typicode.com/users"
+  ).then((res) => res.json());
+  const followResults = await fetch(
+    "https://jsonplaceholder.typicode.com/users"
+  ).then((res) => res.json());
   const providers = await getProviders();
 
   // Prevents login page to show up by react flickering
