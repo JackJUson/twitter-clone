@@ -24,4 +24,8 @@
     transition duration-200 ease-out flex items-center justify-between w-full 
     text-[#1d9bf0] font-light
   }
+
+  .tag {
+    @apply text-[#1d9bf0] font-normal hover:underline cursor-pointer
+  }
 }
