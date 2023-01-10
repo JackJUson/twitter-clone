@@ -21,9 +21,7 @@ function Trending({ result }) {
       {result.img ? (
         <img
           src={result.img}
-          width={70}
-          height={70}
-          className="rounded-2xl object-cover"
+          className="rounded-2xl object-cover w-[70px] h-[70px]"
         />
       ) : (
         <div className="icon group">
