@@ -1,3 +1,5 @@
+import { EllipsisHorizontalIcon } from "@heroicons/react/24/outline";
+
 function Trending({ result }) {
   return (
     <div className="hover:bg-white hover:bg-opacity-[0.03] px-4 py-2 cursor-pointer transition duration-200 ease-out flex items-center justify-between">
@@ -15,6 +17,19 @@ function Trending({ result }) {
           ))}
         </p>
       </div>
+
+      {result.img ? (
+        <img
+          src={result.img}
+          width={70}
+          height={70}
+          className="rounded-2xl object-cover"
+        />
+      ) : (
+        <div className="icon group">
+          <EllipsisHorizontalIcon className="h-5 text-[#6e767d] group-hover:text-[#1d9bf0]" />
+        </div>
+      )}
     </div>
   );
 }
