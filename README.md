@@ -46,3 +46,6 @@ Tweeter is a social media application where users can post and share their thoug
   - comments can include images and emojis like a normal tweet
 
 ## Future Features
+- Live reload for all users when 1 user tweets
+- Notification system of tweets and comments
+- Follow tweet or users
