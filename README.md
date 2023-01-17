@@ -1,4 +1,3 @@
-🚧 Under Construction 🚧
 
 # Tweeter Clone
 Tweeter is a social media application where users can post and share their thoughts, feelings or just talk about something they are passionate about.
@@ -49,3 +48,15 @@ Tweeter is a social media application where users can post and share their thoug
 - Live reload for all users when 1 user tweets
 - Notification system of tweets and comments
 - Follow tweet or users
+
+## Dependencies
+- Express
+- Node
+- RecoilJs
+- ReactJs
+- Firebase
+- Next Authentication
+
+## What the app looks like
+![287446909-twitter](https://user-images.githubusercontent.com/108652931/212782960-0f742399-ceff-4d1a-992f-53430013e8f5.PNG)
+
