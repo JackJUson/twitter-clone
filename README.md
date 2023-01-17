@@ -35,6 +35,8 @@ Tweeter is a social media application where users can post and share their thoug
   - comments can be liked and shared 🎉
   - comments can include images and emojis like a normal tweet
 
+- Sign in with your google account 🤖
+  - Link your twitter account with your google account for faster sign in
 
 ## How To Use
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
@@ -85,5 +87,14 @@ This software uses the following open source packages:
 - Emojis are taken from [here](https://emojiguide.com/)
 
 ## What the app looks like
+- Home page
+
 ![287446909-twitter](https://user-images.githubusercontent.com/108652931/212782960-0f742399-ceff-4d1a-992f-53430013e8f5.PNG)
 
+- Login page
+
+![2](https://user-images.githubusercontent.com/108652931/212921239-b3bf965d-ca19-484e-b36b-3ae41c627ca4.PNG)
+
+- Google sign in
+
+![1](https://user-images.githubusercontent.com/108652931/212921268-fb48d390-a4f5-4bd0-8977-afe08b55adea.PNG)
